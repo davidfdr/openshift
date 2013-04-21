@@ -17,6 +17,12 @@ import org.slf4j.LoggerFactory;
 import br.com.infosolo.educa.domain.Domain;
 import br.com.infosolo.educa.domain.UF;
 
+/**
+ * Bean generico
+ * @author david
+ *
+ * @param <E>
+ */
 @SuppressWarnings("rawtypes")
 public class GenericBean<E extends Domain> implements Serializable {
 
