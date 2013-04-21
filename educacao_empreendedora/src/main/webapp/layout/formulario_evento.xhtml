@@ -1,0 +1,116 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	            xmlns:ui="http://java.sun.com/jsf/facelets"
+	            xmlns:h="http://java.sun.com/jsf/html"
+	            xmlns:f="http://java.sun.com/jsf/core"
+	            xmlns:c="http://java.sun.com/jsp/jstl/core"
+	            xmlns:p="http://primefaces.org/ui"
+	            xmlns:pe="http://primefaces.org/ui/extensions">
+	<!-- INICIO FORMULARIO EVENTO -->
+	<div class="row-fluid">
+		<h2>Cadastro no encontro 2s <h:outputText value="#{tituloFormulario}" /></h2>
+
+		<h:form  id="form-formulario" styleClass="form-horizontal" name="formIncluiParticipante">
+			
+			<div class="control-group">
+				<label class="control-label" for="cpf">CPF</label>
+				<div class="controls">
+	                <p:inputMask id="cpf" size="20" mask="999.999.999-99" value="#{salvarParticipanteBean.participante.cpf}" converter="CPFConverter"/>
+					<p:watermark for="cpf" value="CPF" /> 
+					<p:message for="cpf"/>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="nome">Nome completo</label>
+				<div class="controls">
+					<p:inputText styleClass="input-xxlarge" id="nome" value="#{salvarParticipanteBean.participante.nome}"/>
+					<p:watermark for="nome" value="Nome completo" /> 
+					<p:message for="nome"/>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label " for="nome-cracha">Nome no Crachá</label>
+				<div class="controls">
+					<p:inputText styleClass="input-xxlarge" id="nomeCracha" value="#{salvarParticipanteBean.participante.nomeCracha}"/>
+					<p:watermark for="nomeCracha" value="Nome no Crachá" /> 	
+					<p:message for="nomeCracha"/>			
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="email">Email</label>
+				<div class="controls">
+					<p:inputText styleClass="input-xlarge" id="email" value="#{salvarParticipanteBean.participante.email}"/>
+					<p:watermark for="email" value="Email" /> 
+					<p:message for="email"/>				
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="confirma-email">Confirme email</label>
+				<div class="controls">
+					<p:inputText styleClass="input-xlarge" id="confEmail" value="#{salvarParticipanteBean.confirmacaoEmail}"/>
+					<p:watermark for="confEmail" value="Confirme email" /> 	
+					<p:message for="confEmail"/>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="empresa">Instituição/ Empresa</label>
+				<div class="controls clearfix">
+					<div class="styleCombobox" style="float:left">
+						<select id="empresa">
+							<option>Instituição/ Empresa</option>
+							<option>Lorem ipsum dolor sit amet</option>
+							<option>Sed et diam vel nisl rhoncus porta et diam vel nisl rhoncus porta</option>
+							<option>Curabitur elit libero</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="cargo">Cargo</label>
+				<div class="controls">
+					<p:inputText id="cargo" value="#{salvarParticipanteBean.participante.cargo}"/>
+					<p:watermark for="cargo" value="Cargo" /> 
+					<p:message for="cargo"/>				
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="uf">UF</label>
+				<div class="controls clearfix">
+					<div style="float:left">
+						<p:selectOneMenu id="uf" value="#{salvarParticipanteBean.participante.uf}"  >
+                        	<f:selectItem itemLabel="--Selecione--"/>
+							<f:selectItems value="#{salvarParticipanteBean.ufs}" var="uf" itemLabel="#{uf.name}" itemValue="#{uf}"/>
+                        </p:selectOneMenu>
+                        <p:message for="uf"/>					
+					</div>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="telefone">Telefone</label>
+				<div class="controls">
+				    <p:inputMask id="telefone" size="20" mask="(99)9999-9999?9" value="#{salvarParticipanteBean.participante.telefone}"/>
+					<p:watermark for="telefone" value="Telefone" /> 		
+								
+					<span>Ex. (61) 1234-5678</span>
+					<p:message for="telefone"/>
+				</div>
+			</div>
+
+			<div class="area-botoes">
+				<h:commandLink styleClass="btn btn-large btn-primary" action="#{salvarParticipanteBean.salvarParticipante}" value="Confirma R/RSPV">
+					<f:setPropertyActionListener target="#{salvarParticipanteBean.formulario}" value="#{tituloFormulario}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+	</div>
+	<!-- FIM FORMULARIO EVENTO -->
+</ui:composition>			
